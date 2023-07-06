@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="slide.css">
+<script>
+	$(document).ready(function(){
+		var x = 0;
+		$('.btn-next').click(function(){
+        x= (x<=300)?(x+100):0;
+      $('figure').css('left', -x+'%');
+		});
+     $('.btn-prev').click(function(){
+        x= (x>=100)?(x-100):400;
+      $('figure').css('left', -x+'%');
+    });
+	});
+</script>
+</head>
+<body>
+    <div id="slider">
+        <figure>  
+        <img src="picture.jpeg">
+        <img src="picture2.jpeg">
+        <img src="picture3.jpeg">
+        <img src="picture4.jpeg">
+        <img src="picture5.jpeg">
+        <!-- <img src="anime.gif"> -->
+        </figure>
+        <button class="btn-prev"><i class="fa fa-arrow-circle-left"></i> </button>
+        <button class="btn-next"><i class="fa fa-arrow-circle-right"></i> </button>
+        </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
