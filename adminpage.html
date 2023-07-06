@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="adminpage.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            var userData = localStorage.getItem('userData');
+            userData = JSON.parse(userData);
+            userData.sort((a, b) => {
+                let da = new Date(a.dob),
+                    db = new Date(b.dob);
+                return da - db;
+            });
+            
+            var table = $('#userTable');
+            var rowsPerPage = 3;
+            var totalPages = Math.ceil(userData.length / rowsPerPage);
+            
+            function displayRows(page) 
+            {
+                var startIndex = (page - 1) * rowsPerPage;
+                var endIndex = Math.min(startIndex + rowsPerPage, userData.length);
+                //clearing the row for next iteration
+                var rows = '';
+                for (var i = startIndex; i < endIndex; i++) 
+                {
+                    rows += '<tr>' +
+                        '<td>' + userData[i].firstName + '</td>' +
+                        '<td>' + userData[i].lastName + '</td>' +
+                        '<td>' + userData[i].emailId + '</td>' +
+                        '<td>' + userData[i].dob  + '</td>' +
+                        '<td>' + userData[i].city + '</td>' +
+                        '<td>' + userData[i].state + '</td>' +
+                        '<td>' + userData[i].address + '</td>'
+                        '</tr>';
+                }
+                //to insert row values in tbody tag
+                $('tbody').html(rows);
+            }
+            var pagination= $('#pagination');
+            for(var i=1; i<=totalPages; i++)
+            {
+                //using span tag dynamically according to the input
+                pagination.append('<span class="page-link">' + i + '</span>');
+            }
+            pagination.on('click', '.page-link', function() 
+            {
+                var page = parseInt($(this).text());
+                displayRows(page);
+            });
+            displayRows(1);
+
+
+            $('#searchButton').on('click', function() 
+            {
+                var userData = localStorage.getItem('userData');
+                userData = JSON.parse(userData);
+
+                var val= $('#searchInput').val();
+                var obj=[];
+                for(var i=0; i < userData.length; i++)
+                {
+                    for (const key in userData[i]) 
+                    {
+                        if (userData[i][key].indexOf(val) !== -1) 
+                        {
+                            obj.push(userData[i]);
+                        }
+                    }
+                }
+                var rows = '';
+                for (const key in obj) 
+                {
+                    rows += '<tr>' +
+                        '<td>' + obj[key].firstName + '</td>' +
+                        '<td>' + obj[key].lastName + '</td>' +
+                        '<td>' + obj[key].emailId + '</td>' +
+                        '<td>' + obj[key].dob  + '</td>' +
+                        '<td>' + obj[key].city + '</td>' +
+                        '<td>' + obj[key].state + '</td>' +
+                        '<td>' + obj[key].address +'</td>' +
+                        '</tr>';
+                }
+                //to insert row values in tbody tag
+                $('tbody').html(rows);
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>Student Details</h1>
+  
+    <div>
+        <input type="text" id="searchInput" placeholder="Search by name">
+        <button id="searchButton">Search</button>
+    </div>
+    
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+    <div id="pagination"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+#head{
+    padding-top: 10px;
+    font-size: 30px;
+    color: solid black;
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: linear-gradient(45deg, #fff722, #ff26f9);
+    margin: 0;
+    padding: 0;
+}
+
+form {
+
+
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: lightpink;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 4px 4px 4px red;
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="file"],
+input[type="password"]
+{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #cccccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: red;
+}
+input[type="button"]:hover{
+    background-color: red;
+}
+#adminbutton{
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 50px;
+}

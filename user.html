@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var userData = localStorage.getItem('newData');
+                userData = JSON.parse(userData);
+
+                var users = localStorage.getItem('userData');
+                users = JSON.parse(users);
+               
+                
+                $('.container .user-details .firstName').text(userData.firstName)
+                $('.container .user-details .lastName').text(userData.lastName)
+                $('.container .user-details .email').text(userData.emailId)
+                $('.container .user-details .passWord').text(userData.Password)
+                $('.container .user-details .dob').text(userData.dob)
+                $('.container .user-details .city').text(userData.city)
+                console.log(userData.image)
+                $('.image').attr('src','/home/z0405@ad.ziffity.com/Pictures/'+userData.image)
+
+                $('.container .user-details .state').text(userData.state)
+                $('.container .user-details .address').text(userData.address)
+    
+                //for lastname
+                $('.getlastname').hide();
+    
+                $('.editlastname').on('click', function() {
+                    $('.getlastname').show();
+                });
+    
+                $('.getlastname').on('change', function() {
+                    var editedLastName = $(this).val();
+                    var name = /^[A-Z]{1}[a-z]+$/;
+                    if (!name.test(editedLastName)) {
+                        alert('Please enter a valid Last name.');
+                        return;
+                    }
+                    userData.lastName = editedLastName;
+                    localStorage.setItem('newData', JSON.stringify(userData));
+                    $('.container .user-details .lastName').text(userData.lastName);
+                });
+    
+                //for password
+                $('.getOldPassword').show();
+                $('.enterNewPass').show();
+                $('.conformNewPass').show();
+    
+                $('.editpassword').on('click', function() {
+                    $('.getOldPassword').show();
+                    $('.enterNewPass').show();
+                    $('.conformNewPass').show();
+    
+                    var oldPassword = $('.getOldPassword').val();
+                    var newPassword = $('.enterNewPass').val();
+                    var confirmNewPassword = $('.conformNewPass').val();
+                    // var Pass = /^[A-Za-z0-9+]{8,15}$/;
+                    // if (!Pass.test(newPassword)) {
+                    //     alert('Password must contain 8 to 15 charachters with atleast one uppercase, lowercase and digits');
+                    //     return;
+                    // }
+                    if (oldPassword != userData.Password) {
+                        alert('Incorrect old password');
+                        return;
+                    } else if (newPassword != confirmNewPassword) {
+                        alert('New password and confirm password do not match');
+                        return;
+                    } else if (oldPassword == confirmNewPassword){
+                        alert('Don\'t give old password again');
+                        return;
+                    }else {
+                        userData.Password = confirmNewPassword;
+                        localStorage.setItem('newData', JSON.stringify(userData));
+                        console.log(users);
+
+                        for(i=0;i<users.length;i++)
+                        {
+                            if(users[i].firstName==userData.firstName)
+                            {
+                                users[i]=userData;
+                                console.log(users)
+                            }
+                        }
+
+                        localStorage.setItem('userData',JSON.stringify(users))
+                        alert('Password updated successfully');
+                        
+                    }
+                    $('.container .user-details .passWord').text(userData.Password);
+    
+                    
+                });
+    
+    
+    
+                //logout to register page
+                $('#Logout').click(function() {
+                    window.location.href = 'signup.html';
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>User Details</h1>
+            <div class="user-details">
+                <label>First Name:</label>
+                <span class="firstName"></span>
+            </div>
+            <div class="user-details">
+                <label>Last Name:</label>
+                <span class="lastName"></span>
+                <input type="text" class="getlastname">
+                <button class="editlastname">Edit</button>
+            </div>
+            <div class="user-details">
+                <label>Email:</label>
+                <span class="email"></span>
+            </div>
+            <div class="user-details">
+                <!-- <label>Password:</label> -->
+                <!-- <span class="passWord"></span><br><br> -->
+                <input type="password" class="getOldPassword" placeholder="enter old password"><br><br>
+                <input type="password" class="enterNewPass" placeholder="enter new password"><br><br>
+                <input type="password" class="conformNewPass" placeholder="confirm password"><br>
+                <button class="editpassword">Edit</button>
+            </div>
+            <div class="user-details">
+                <label>Date of Birth:</label>
+                <span class="dob"></span>
+            </div>
+            <div class="user-details">
+                <label>City:</label>
+                <span class="city"></span>
+            </div>
+            <div class="user-details">
+                <label>State:</label>
+                <span class="state"></span>
+            </div>
+            <div class="user-image">
+                <label>Image:</label>
+                <img class="image"></img>
+            </div>
+            <div class="user-details">
+                <label>Address:</label>
+                <span class="address"></span>
+
+            </div>
+            <button id="Logout">Logout</button>
+        </div>
+</body>
+</html>

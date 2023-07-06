@@ -1,0 +1,49 @@
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-image:linear-gradient(90deg, #fff722, #ff26f9); 
+        }
+
+        #admin-login {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: lightpink;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 4px 4px 4px red;
+            margin-top: 250px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color:black;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: red;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+  

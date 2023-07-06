@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="adminlogin.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <div id="admin-login">
+        <h1>Admin Login</h1>
+        <input type="text" id="username" placeholder="User name" />
+        <input type="password" id="passWord" placeholder="Enter the Password" />
+        <input type="submit" id="submit" value="Submit" />
+        <div class="error-message"></div>
+    </div>
+
+    <script>
+        // DOM ready event handler
+        $(document).ready(function() {
+            $('#admin-login #submit').on('click', function() {
+                var adminUsername = $('#username').val();
+                var adminPassword = $('#passWord').val();
+
+                console.log(adminPassword,adminPassword)
+
+                if (adminUsername === 'administrator' && adminPassword === 'admin@14') {
+                    window.location.href = 'adminpage.html';
+                } else {
+                    alert('Invalid admin credentials. Please try again.');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

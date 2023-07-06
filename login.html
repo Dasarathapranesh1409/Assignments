@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var userData = localStorage.getItem('userData');
+            userData = JSON.parse(userData);
+            
+            $('#submit').on('click',function(event) {
+                event.preventDefault(); 
+                
+                var email = $('#emailId').val();
+                var password = $('#passWord').val();
+                var matched = false;
+                for (var i = 0; i < userData.length; i++) {
+                    var user = userData[i];
+                    if (user.emailId === email && user.Password === password) {
+                        matched = true;
+                        localStorage.setItem('newData', JSON.stringify(user))
+                        break;
+                    }
+                }
+                if (matched) {
+              
+                    window.location.href = 'user.html';
+                } else {
+                    $('.error-message').text('Invalid email or password.');
+                }
+        
+            });
+            // var updatepassword =$('#update').value();
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <h1>Login</h1>
+        <input type="email" id="emailId" placeholder="Enter the email" />
+        <input type="password" id="passWord" placeholder="Enter the Password" />
+        <input type="submit" id="submit" value="Submit" /><br><br>
+        <!-- <button type="button" id="update">Update Password</button> -->
+        <div class="error-message"></div>
+    </form>
+</body>
+</html>
