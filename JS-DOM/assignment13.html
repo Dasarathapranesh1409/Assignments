@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment13</title>
+</head>
+<script>
+    function getSize()
+{
+var w = document.documentElement.clientWidth;
+var h = document.documentElement.clientHeight;
+        
+ document.getElementById('wh').innerHTML = "<h1>Width: " + w + " Height: " + h + "</h1>";
+}
+
+</script>
+<body onload="getSize()" onresize="getSize()">
+<div id="wh"> </div>
+<body>
+</body>
+</html>
