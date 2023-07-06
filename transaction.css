@@ -1,0 +1,25 @@
+body{
+    background-image: url("loginbank.jpg");
+    background-repeat: no-repeat;
+}
+.container{
+    padding-top: 275px;
+    padding-left: 800px;
+
+}
+#creditBtn{
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+#debitBtn{
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}

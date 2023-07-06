@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <div id="name"></div>
+    <script>
+        var name = localStorage.getItem('name');
+        document.getElementById('name').textContent = 'Logged in as: ' + name;
+        </script> 
+    <div class="Top">
+        <a href="home.html" class="moneyTransaction"><p>Home</p></a>
+        <a href="transaction.html" class="moneyTransaction"><p>Transaction</p></a>
+        <a href="login.html" class="moneyTransaction"><p>LogOut</p></a>
+    </div>
+    <div class="container">
+        <div>
+    <img id="image" src="loginbank.jpg"></img>
+</div>
+<div id="h1">
+    <h2>"Your Trusted Financial Partner"
+        </h2><br>
+        <img id="image2" src="page.jpg"></img>>
+</div>
+</div>
+</body>
+</html>

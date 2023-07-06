@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="transaction.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Transaction</title>
+</head>
+<body>
+  <div class="container">
+  <label for="account">Account  Balance:</label>
+  <span id="accountBalance">0</span><br><br>
+  
+  <label for="amount">Transaction Amount:</label>
+  <input type="number" id="amount"><br><br><br>
+  
+  <button id="creditBtn">Credit</button>   
+
+  <button id="debitBtn">Debit</button><br><br>
+</div>
+  <script>
+     $(document).ready(function() {
+
+        var acctBalance = parseFloat(localStorage.getItem('accountBalance'))
+
+        console.log(acctBalance)
+      
+      $('#accountBalance').text(localStorage.getItem('accountBalance'));
+
+      $('#creditBtn').on('click',function() {
+        var amount = parseFloat($('#amount').val());
+        console.log(amount)
+        var acctBalance = parseFloat(localStorage.getItem('accountBalance'))
+       
+       if( acctBalance+amount < 0 && amount<=0)
+       {
+        alert('not valid')
+       }
+       else
+       {
+        acctBalance += amount;
+
+        localStorage.setItem('accountBalance',acctBalance);
+
+       }
+      
+        
+        $('#accountBalance').text(acctBalance);
+        
+      });
+      $('#debitBtn').on('click',function() {
+        var amount = parseFloat($('#amount').val());
+        console.log(amount)
+        var acctBalance = parseFloat(localStorage.getItem('accountBalance'))
+        
+       
+      
+        // localStorage.setItem('accountBalance',acctBalance);
+
+        if( acctBalance-amount < 0)
+       {
+        if(amount<0)
+        {
+            alert('negative number not allowed')
+        }
+        alert('not enough money in your account')
+       
+       }
+       if(amount<0)
+        {
+            alert('negative number not allowed')
+        }
+       else
+       {
+        acctBalance -= amount;
+
+        localStorage.setItem('accountBalance',acctBalance);
+
+       }
+        
+        $('#accountBalance').text(acctBalance);
+        
+      });
+    });
+    </script>
+    </body>
+</html>

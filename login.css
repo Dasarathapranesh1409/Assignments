@@ -1,0 +1,16 @@
+body{
+    background-image: url(loginbank.jpg);
+    background-repeat: no-repeat;
+}
+.login{
+   padding-top: 250px;
+   padding-left: 550px;
+}
+#btn{
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}

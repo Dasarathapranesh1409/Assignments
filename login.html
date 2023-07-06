@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   
+</head>
+<body>
+    <div class="login">
+          USER NAME : <input type="text" id= "name" placeholder="name" required><br><br>
+          PASSWORD : <input type="password" id="pass" placeholder="password" required><br><br>
+          <button id="btn">Submit</button>
+    </div>
+<script>
+        $(document).ready(function(){
+            $("#btn").on("click",function(){
+                console.log('hello')
+                var name = $("#name").val();
+                var password = $("#pass").val();
+                localStorage.setItem('name', name);
+                if ((name == 'Pranesh' && password == 'Pranesh@14') || (name == 'Praveen' && password == 'Praveen@14')) {
+                    window.location.href="home.html";
+                        } 
+                else {
+                        alert('Invalid username or password. Please try again.');
+                        }
+            });
+        });
+       </script>
+</body>
+</html>

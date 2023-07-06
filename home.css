@@ -1,0 +1,33 @@
+.Top{
+    display: flex;
+    justify-content: space-around;
+    background-color: aqua;
+    border-radius: 10px;
+ 
+ }
+ .moneyTransaction{
+     color: red;
+ }
+ #name{
+     display:flex;
+     float: right;
+     font-weight: bolder;
+     padding-top: 100px;
+     padding-right: 50px;
+     font-size: 20px;
+     color: red
+ 
+ }
+ .container{
+     display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap: 10px;
+ }
+ #h1{
+     padding-top: 100px;
+     padding-left: 190px;
+ }
+ #image2{
+     height: 540px;
+     width: 640px;
+ }
