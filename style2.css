@@ -1,0 +1,72 @@
+h1{
+    text-align: center;
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-display: bold;
+}
+body{
+    background-image: url(part2.jpeg);
+    background-size: 1900px 2000px;
+}
+h3{
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.price{
+    column-gap: 40px;
+    height: 600px;
+    width: 1300px;
+    display: flex;
+    background-color:bisque;
+    box-shadow: 0px 0px 4px black;
+    border-radius: 30px;
+    column-rule-color: black;
+    
+}
+   
+    
+.standard{
+/* border-radius: 20px;   
+background-color:lawngreen; */
+padding-top: 110px;
+padding-left: 80px;
+column-rule-color: black;
+}
+.business{
+    /* background-color: bisque; */
+    padding-top: 110px;
+    padding-left: 100px;
+
+}
+.Mac{
+    /* background-color: aquamarine; */
+    padding-top: 110px;
+    padding-left: 120px;
+
+}
+.stdbutton{
+    height: 60px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+}
+.busbutton{
+    height: 60px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+.macbutton{
+    height: 60px;
+    width: 200px;
+    border-radius: 15px;
+    background-color:white;
+    color: black;
+
+}
+h4{
+    text-align: center;
+}

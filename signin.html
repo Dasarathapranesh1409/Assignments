@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch-Signin</title>
+    <link rel ="stylesheet" href ="style1.css">
+</head>
+<br><br><br>
+<body>
+    <center>
+    <div class="secondBox">
+        <div class="firstsign">
+            <h2><b>Sketch is your all-in-one<br> design toolkit</b></h2>
+            <p>Sketch gives you all the tools you need for truly<br> collaborative design. From early ideas to pixel-perfect artwork,<br> playable prototypes and handoff, it all starts<br> here.</p>
+            <img src="a.jpeg" class="image1"><h3>Get access to our native Mac app and Workspaces</h3><br>
+            <img src="b.jpeg"><h3>Online Workspace to store and share your work</h3><br>
+            <img src="c.jpeg"><h3>Powerful sharing and collaboration tools</h3>   
+        </div>
+        <div id='form' class="Secondsign">
+            <form class="secondtag" >
+                <label for="Name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="FirstName" id="name" required><br><br>
+                <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required><br><br>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id='psw' required><br><br>
+      <button type="submit" class="firstbutton">Sign up</button>
+
+            </form>
+        </div>
+    </div>
+    </center>
+    <script>
+        const form = document.getElementById('form')
+        form.addEventListener('submit', function(e){
+            e.preventDefault()
+        const name=document.getElementById('name');
+        const email=document.getElementById('email');
+        const password=document.getElementById('psw');
+        // const email = form.elements.email.value
+        // const password = form.elements.psw.value
+        
+        const cred={
+            'name':name.value,'email':email.value,'password':psw.value
+        }
+        name.value='';
+        email.value='';
+        password.value='';
+        localStorage.setItem('signup',JSON.stringify(cred))
+        })            
+</script>
+    </body>
+</html>

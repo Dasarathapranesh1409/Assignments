@@ -1,0 +1,44 @@
+body{
+    background-color: antiquewhite;
+    background-image: url(part2.jpeg);
+    
+}
+.secondBox{
+    justify-content: center;
+    display: grid;
+    height: 800px;
+    width: 1600px;
+    border-radius: 30px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    box-shadow: 0px 2px 8px black;
+    background-color:lightpink;
+    opacity: 0.8;
+    
+}
+.firstsign{
+    
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-top: 150px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.secondtag{
+    text-align: center;
+    padding-top: 150px;
+    
+}
+.firstbutton{
+    font-size: 20px;
+    height: 70px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: orange;
+    color: white;
+}
+.image1{
+    height: 10px;
+    width: 10px;
+ 
+}
