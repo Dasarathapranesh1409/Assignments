@@ -1,0 +1,18 @@
+Requirents:
+ *The PLP  page should contains three categories like Vegetables,Nuts,Grossary
+ *The PDP page should contain product description and Add to cart button
+ *The total products should be 24 and each categories contains 8 unique products
+ *And the pagination should be 4 for each page
+ *In the PLP page when the cart button is pressed it should display Name,price,Quantity,Image,totalprice and totalItems
+ *In the PDP page also we can add the items to the cart.
+
+ Solution Approach:
+ plp.html:
+  *An HTML page with JavaScript code that creates a product listing page with filtering, pagination, and cart functionality using Knockout.js.
+  *Users can filter products by category, navigate through pages, and add products to the cart.
+  *When we click the product name it will redirect to the PDP page
+ cart.html: 
+  *The page displays various products along with their details, such as name, price, image,quantity and totalItems.
+ product.html:
+  *It displays description and add to cart   
+  

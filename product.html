@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <h1>Product Details</h1>
+  <button class="cart" type="button" data-bind="click: viewCart">Cart</button>
+  <div>
+    <h3 data-bind="text: productName"></h3>
+    <p data-bind="text: productDescription"> </p>
+    <p data-bind="text: productPrice"></p>
+    <img data-bind="attr: { src: productImage }" width="200" height="100">
+    <button class="addcart" data-bind="click: addToCart">Add to Cart</button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const productName = urlParams.get('name');
+    const productDescription = urlParams.get('description');
+    const productPrice = urlParams.get('price');
+    const productImage = urlParams.get('image');
+    function ProductDetailsViewModel() {
+      var self = this;
+      self.productName = ko.observable(productName);
+      self.productDescription = ko.observable(productDescription);
+      self.productPrice = ko.observable(productPrice);
+      self.productImage = ko.observable(productImage);
+      self.addToCart = function () {
+        var cartData = localStorage.getItem('cart');
+        var cartItems = cartData ? JSON.parse(cartData) : [];
+        cartItems.push({
+          name: self.productName(),
+          price: self.productPrice(),
+          image: self.productImage(),
+          quantity: 1 
+        });
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+      };
+      self.viewCart = function () {
+        window.location.href = 'cart.html';
+      };
+    }
+    ko.applyBindings(new ProductDetailsViewModel());
+  </script>
+</body>
+</html>
