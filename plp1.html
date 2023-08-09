@@ -1,0 +1,147 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Product Listing Page</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+  <link rel="stylesheet" href="Style/plp.css">
+</head>
+<body>
+  <h1>List of Products</h1>
+</div>
+  <div>
+    <label>Categories:</label>
+    <div data-bind="foreach: foodTypes">
+      <label>
+        <input type="checkbox" data-bind="checked: $root.selectedFoodTypes, value: $data"> <span data-bind="text: $data"></span><br>
+      </label>
+    </div>
+    <button class="cart" type="button" data-bind="click: viewCart">Cart</button><br><br>
+  </div>
+
+  <div id="outerdiv" data-bind="foreach: displayedProducts">
+    <div id="innerdiv">
+      <h3><a data-bind="text: name, attr: { href: 'product1.html?name=' + encodeURIComponent(name) + '&description=' + encodeURIComponent(description) + '&price=' + encodeURIComponent(price) + '&image=' + encodeURIComponent(image) }"></a></h3>
+      <p data-bind="text: price"></p>
+      <img data-bind="attr: { src: image }" width="200" height="100">
+      <!-- <input class="quantity" type="number" min="1" data-bind="value: quantity, event: { change: $root.updateTotalPrice }, valueUpdate: 'input'"> -->
+      <!-- <button class="addcart" data-bind="click: $root.addToCart.bind($root, $data)">Add to Cart</button> -->
+    </div>
+    </div> 
+  <div class="pagination">
+    <button data-bind="click: previousPage, enable: currentPage() > 0">Previous</button> 
+    <!-- ko foreach: Array.from({ length: totalPages() }, (_, index) => index) -->
+    <button data-bind="text: $data + 1, click: $parent.goToPage.bind($parent, $data), css: { active: $parent.currentPage() === $data }"></button>
+    <!-- /ko -->
+    <button data-bind="click: nextPage, enable: currentPage() < totalPages() - 1">Next</button>
+   </div>
+
+   <script>
+    function Product(name, description, price, type, image, quantity) {
+      this.name = name;
+      this.description = description;
+      this.price = price;
+      this.type = type;
+      this.image = image;
+      this.quantity = 0;
+      this.isSelected = ko.observable(false);
+    }
+
+    var products = [
+    new Product("Thoor Dhall", "Toor dal is rich in protein that might help avoid type 2 diabetes.", "$8.99", "grossary",'images/thoordhall.jpeg' ),
+      new Product("Gram Dhall", "Gram dal is a good source of folic acid. It has a good fiber content and helps in digestion", "$11.99", "grossary",'images/gramdhall.jpeg'),
+      new Product("Mustard", "Mustard contains antioxidants and other beneficial plant compounds thought to help protect your body against damage and disease.", "$13.99", "grossary",'images/mustard.jpeg'),
+      new Product("Sunflower Oil", "Sunflower oil is pressed from the seeds of the sunflower plant (Helianthus annuus). It contains high amounts of the essential fatty acid, linoleic acid", "$10.99", "grossary",'images/oil.jpeg'),
+      new Product("Turmeric", "Turmeric — and especially its most active compound, curcumin — have many scientifically proven health benefits, such as the potential to improve heart health and prevent against Alzheimer's and cancer.", "$12.99", "grossary",'images/turmeric.jpeg'),
+      new Product("Pepper", "Black pepper helps to stimulate hydrochloric acid in your stomach so you can better digest and absorb the foods you ", "$9.99", "grossary",'images/pepper.jpeg'),
+      new Product("Badham", "Almonds can help lower your systolic blood pressure, which offers even more protection against heart disease.", "$14.99", "Nuts",'images/badham.jpeg'),
+      new Product("Cashewnut", "Cashew is used for diabetes, high cholesterol, heart disease, stomach and intestinal (gastrointestinal) ailments, skin problems,", "$16.99", "Nuts",'images/cashew.jpeg'),
+      new Product("Dry Grapes", "Grapes are a good source of potassium, a mineral that helps balance fluids in your body. ", "$10.99", "Nuts",'images/drygrapes.jpeg'),
+      new Product("Groundnut", "Groundnut seed can be consumed raw (non-heated), boiled, and roasted and also used to make confections and its flour to make baked products", "$12.99", "Nuts",'images/groundnut.jpeg'),
+      new Product("Pista", "The edible seeds of the Pistacia vera tree are a good source of protein, fibre, antioxidants, and beneficial fats.", "$12.99", "Nuts",'images/pista.jpeg'),
+      new Product("dates","The antioxidants, minerals, and vitamins in dates help support brain, digestive, and heart health and protect against disease. ","$12","Nuts","images/dates.jpeg"),
+      new Product("Carrot","It is crunchy, tasty, and highly nutritious. Carrots are a particularly good source of beta carotene, fiber, vitamin K1, potassium, and antioxidants ( 1 )","$12","Vegetables","images/carrot.jpeg"),
+      new Product("Garlic","Garlic is widely recognized for its ability to fight bacteria, viruses, fungi, and even parasites","$12","Vegetables","images/garlic.jpeg"),
+      new Product("Ladyfinger","Lady finger is good for digestion as it has high fiber content and it prevents constipation due to its laxative property.","$4","Vegetables","images/ladyfinger.jpeg"),
+      new Product("Onion","The onion bulb is commonly eaten as food. Onion bulb and extract are also used to make medicine.","$6","Vegetables","images/onion.jpeg"),
+      new Product("Tomato","People use tomato for cancer prevention, diabetes, high blood pressure, heart disease, osteoarthritis, and many other","$60","Vegetables","images/tomato.jpeg"),
+      new Product("Cucumber","They are ideal for detoxification and preventing dehydration. Cucumbers are rich in phytonutrients and vitamin K","$10","Vegetables","images/cucumber.jpeg"),
+      new Product("Brinjal","Brinjal may help to lower the risk of many heart diseases such as heart attack and stroke by apparently reducing the damage caused by free radicals","$5","Vegetables","images/brinjal.jpeg"),
+      new Product("potato","They're rich in vitamin C, which is an antioxidant. Potatoes were a life-saving food source in early times because the vitamin C prevented scurvy","$15","Vegetables","images/potato.jpeg"),
+      new Product("Fenugreek", "Fenugreek (Trigonella foenum-graecum) is an herb similar to clover. The seeds taste similar to maple syrup and are used in foods and medicine.", "$9.99", "grossary",'images/fenugreek.jpeg'),
+      new Product("Millets", "Millets are a rich source of fibre, minerals like magnesium, phosphorous, iron, calcium, zinc and potassium ", "$19.99", "grossary",'images/millet.jpeg'),
+      new Product("HazleNut", "Hazelnut contains oil, protein, fiber, and antioxidants. The antioxidants in hazelnut might have heart health benefits.", "$12.99", "Nuts",'images/hazlenut.jpeg'),
+      new Product("PineNut", "These tiny seeds pack a variety of nutrients essential to your health, including vitamins, minerals, and heart-healthy fats.", "$12.99", "Nuts",'images/pinenut.jpeg'),
+
+    ];
+
+    function ProductViewModel() {
+      var self = this;
+
+      self.foodTypes = ko.observableArray([ "grossary", "Nuts", "Vegetables"]);
+      self.selectedFoodTypes = ko.observableArray([]); 
+    //   self.selectedFoodType = ko.observable("All");
+
+       self.currentPage = ko.observable(0); 
+       self.pageSize = 8;
+
+      self.products = ko.observableArray(products);
+
+      self.selectedProducts = ko.computed(function () {
+        var selectedTypes = self.selectedFoodTypes();
+        var selectedProducts = self.products().filter(function (product) {
+          return selectedTypes.length === 0 || selectedTypes.includes("All") || selectedTypes.includes(product.type);
+        });
+
+        return selectedProducts;
+      });
+
+      self.totalPages = ko.computed(function () {
+        return Math.ceil(self.selectedProducts().length / self.pageSize);
+      });
+
+      self.displayedProducts = ko.computed(function () {
+        var startIndex = self.currentPage() * self.pageSize;
+        return self.selectedProducts().slice(startIndex, startIndex + self.pageSize);
+      });
+
+      self.nextPage = function () {
+        if (self.currentPage() < self.totalPages() - 1) {
+          self.currentPage(self.currentPage() + 1);
+        }
+      };
+
+      self.previousPage = function () {
+        if (self.currentPage() > 0) {
+          self.currentPage(self.currentPage() - 1);
+        }
+      };
+
+      self.goToPage = function (pageIndex) {
+        self.currentPage(pageIndex);
+      };
+
+      self.cartItems = ko.observableArray([]);
+
+      self.addToCart = function (product) {
+        self.cartItems.push(product);
+        var cartData = ko.toJSON(self.cartItems());
+        localStorage.setItem("cart", cartData);
+      };
+    
+      self.viewCart = function () {
+        var cartData = ko.toJSON(self.cartItems());
+        // localStorage.setItem("cart", cartData);
+        window.location.href = 'cart1.html';
+      };
+    }
+     
+    ko.applyBindings(new ProductViewModel());
+  </script>
+</body>
+</html> 
+ 
+
+
+
+ 

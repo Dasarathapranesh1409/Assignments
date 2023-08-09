@@ -1,18 +1,18 @@
 *{
   font-family: Arial, Helvetica, sans-serif;
   color: black;
-  text-shadow: 1px 2px 7px;
 }
    
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background: linear-gradient(to right, #008080, #4b0082);
+  /* background: linear-gradient(90deg, #008080, #4b0082); */
+  background-image: linear-gradient(90deg, #FFC3A0, #FFAFBD); 
 }
-body:hover{
-  background-image: linear-gradient(135deg, #FFC3A0, #FFAFBD); 
-}
+/* body:hover{
+  background-image: linear-gradient(90deg, #FFC3A0, #FFAFBD); 
+} */
 h1 {
   text-align: center;
   color: red;
@@ -115,12 +115,12 @@ p {
 }
 
 .pagination button.active {
-  background-color: #4caf50;
+  background-color: black;
   color: white;
 }
 
 .pagination button:hover {
-  background-color: #ddd;
+  background-color:red;
 }
 
 .pagination button:disabled {
