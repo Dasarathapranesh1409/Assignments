@@ -1,0 +1,125 @@
+/* Basic styling for the body and container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.preview-survey {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: lightblue;
+}
+
+.preview-survey h2 {
+    margin-top: 0;
+}
+
+.preview-survey .question {
+    margin-bottom: 20px;
+}
+
+.preview-survey p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.preview-survey label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.preview-survey input[type="radio"],
+.preview-survey input[type="text"] {
+    margin-left: 10px;
+}
+
+.preview-survey .star-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.preview-survey .star-rating input[type="radio"] {
+    display: none;
+}
+
+.preview-survey .star-rating label.star {
+    font-size: 30px;
+    color: #ccc;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.preview-survey .star-rating input[type="radio"]:checked ~ label.star:before {
+    content: "\2605";
+    color: #fdd835;
+}
+
+.preview-survey input[type="submit"] {
+    background-color:black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.preview-survey input[type="submit"]:hover {
+    background-color: red;
+}
+
+.preview-survey form {
+    margin-top: 20px;
+}
+
+.preview-survey form input[type="submit"] {
+    margin-right: 10px;
+}
+
+ button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+ button:hover {
+    background-color: red;
+}
+
+#urlContainer {
+    margin-top: 10px;
+}
+.star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star {
+    cursor: pointer;
+    padding: 2px;
+    font-size: 24px;
+    color: #999;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #FFD700;
+}
+
+
+

@@ -1,0 +1,85 @@
+/* Basic styling for the body and container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.create-survey {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.create-survey h2 {
+    margin-top: 0;
+}
+
+.create-survey label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.create-survey input[type="text"],
+.create-survey select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.create-survey input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.create-survey #options-container {
+    margin-top: 10px;
+}
+
+.create-survey input[type="submit"] {
+    background-color:black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.create-survey input[type="submit"]:hover {
+    background-color: red;
+}
+
+.create-survey a {
+    text-decoration: none;
+    color: #0645ad;
+}
+
+.create-survey a:hover {
+    text-decoration: underline;
+}
+
+/* Additional styling for the form */
+.create-survey form {
+    margin-bottom: 10px;
+}
+
+.create-survey form div {
+    margin-top: 10px;
+}
+
+/* Styling for dynamically generated option input fields */
+.create-survey input[name="options[]"] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.create-survey input[name="options[]"]:last-child {
+    margin-bottom: 10px;
+}
+
