@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+<referenceContainer name="footer">
+<block class="Magento\Framework\View\Element\Template" name="custom.feedback.link" template="Task_Feedback::feedbackLink.phtml"/>
+<!-- <block class="Magento\Framework\View\Element\Template" name="custom.feedbackdata.link" template="Task_Feedback::scrollerLink.phtml"/> -->
+</referenceContainer>
+ <referenceContainer name="content">
+           <block class="Task\Feedback\Block\GetData" name="GetData.feedback" template="Task_Feedback::scroller.phtml" />
+
+       </referenceContainer>
+
+</body>
+</page>
