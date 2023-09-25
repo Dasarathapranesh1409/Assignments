@@ -15,5 +15,5 @@
 - Whenever a customer adds a product to the cart, we should publish the data to be stored in Queue and consume the data from the queue, then store the data in the custom table.
 - We should have logging wherever necessary to identify any issues in the process.
 
-#ETA - 24hrs
+# ETA - 24hrs
 
